@@ -1,0 +1,96 @@
+<!-- ベーステンプレートを適用する -->
+<!-- 静的ファイルのURLを生成するstaticタグをロードする -->
+{% load static %}
+<!doctype html>
+<!-- 言語指定をenからjaに変更 -->
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    
+
+    <!-- <link rel="canonical"...>を削除 -->    
+
+    <!-- Bootstrap core CSS -->
+    <!--
+    Bootstrap core CSSを読み込むコードをBootstrapからコピーして
+    <link>タグを書き換え -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" 
+          crossorigin="anonymous">
+    
+
+    
+    <!-- Custom styles for this template -->
+    <!-- 「static/css/signin.css」の読み込み -->
+    <link href={% static "css/style.css" %}
+          rel="stylesheet">
+  </head>
+  <body id="login1" >    
+    <main class="form-signin">
+      <!-- Bootstrapのグリッドシステム -->
+      <hr>
+      <article>        
+        <p>下記メールフォームをご記入いただき、「送信する」ボタンを押してください。</p>
+        <p>「<span class="must">※</span>」は必須項目です。</p>
+        <section>
+          <h2>マイページ作成</h2>
+           <div class="signup-container mannnaka ">
+            <!-- サインアップのフォームを配置 -->
+            <form method = "post" class="form-control">
+              {% csrf_token %}
+              <!-- formからフィールドを取り出す -->
+             <table>
+              {% for field in form %}
+               
+                 <!-- ラベルを出力 -->
+                 
+                  <tr>
+                    {% if field.label == 'ユーザー名' or field.label == 'メールアドレス' or field.label == '趣味' or  field.label == 'パスワード' or field.label == 'パスワード(確認用)' %}
+                    <th><span class="must">※</span>{{ field.label_tag }}</th>
+                    <td>{{ field }}</td>
+                    {% else %}
+                    <th>{{ field.label_tag }}</th>
+                    <td>{{ field }}</td>
+                    {% endif %}
+                  </tr>
+                 <!-- <input>タグを出力 -->
+                
+                 <!-- help_textを出力 -->
+                 
+                   
+                 
+                 <!-- エラー発生時のテキストerrorsを出力 -->
+                 {% for error in field.errors %}
+                   <p style="color: red">{{ error }}</p>
+                 {% endfor %}
+                
+             {% endfor %}
+            </table>
+            <!--時間があれば注意書きとリテラシーなど含めた文章読んだ上でのユーザー同意のためのチェック
+            を作りたい-->
+            <br>
+              <a style="color:red">
+                ※メールアドレスはパスワードをリセットする際に必要になりますので、
+                登録をお願いします。
+              </a>
+              <!-- Sign upボタンを出力 -->
+              <input type="submit" value="Sign up">
+            </form>
+          </div>
+            <!-- トップページのリンクテキスト -->
+            <br>
+            
+          </dv>
+        </dv>
+      </dv>
+      </section>
+      </article>
+      </main>
+      
+    </body>
+    </html>

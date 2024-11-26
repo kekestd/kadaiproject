@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block  bg %}gallery1{% endblock %}
+{% block  main %}
+      
+      <article id="gallery">
+       <h3>やってるゲーム🎮</h3>
+       <table>
+         <tr>
+          <th>ゲーム種類</th>
+          <th>ゲーム名</th>
+          <th>キャラ名</th>
+         </tr>
+         <tr>
+          <th rowspan="3">🥊格闘ゲーム🥊</th>
+          <td id="st6"><img  src={% static 'images/st6.png' %} >
+             </td> 
+          <td id="st61"><img  src={% static 'images/kin-removebg-preview.png' %}>
+          <h4>キンバリー</h4></td>
+         </tr>
+         <tr>
+          <td id="gi"> <img src={% static 'images/640px-Guilty_gear_logo-removebg-preview.png' %} ></td>
+          <td id="gi2"><img src={% static 'images/gi2.jpg' %} >  
+            <h4>シン</h4></td>
+    
+         </tr>
+         <tr>
+            <td id="suma"> <img src={% static 'images/suma-removebg-preview.png' %} ></td>
+            <td id="suma2"><img src={% static 'images/samusu-removebg-preview.png' %} > 
+              <h4>ダークサムス</h4></td>
+           
+           </tr>
+           <tr id="none">
+          <th rowspan="2">FPS</th>
+          <td><img src={% static 'images/73979561-7da4-405f-94db-a41dd73a9d38.png' %} ></td>
+          
+         </tr>
+         <tr id="none">
+          <th id="sizi"><img src={% static 'images/OIP-removebg-preview.png' %} ></th>
+        
+         </tr>
+        
+
+        </table>
+        
+      </article>
+      
+      {% endblock %}
+
+    

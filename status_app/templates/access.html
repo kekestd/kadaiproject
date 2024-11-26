@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block bg%}index1{% endblock %}
+{% block main%}
+
+  <!-- Bootstrapのグリッドシステム -->
+
+      
+    
+    
+      
+      
+          <section id="point">
+        
+            <h2>趣味追加</h2>
+        
+            
+            <form method = "post" enctype="multipart/form-data" class="form-control">
+              {% csrf_token %}
+              
+              <table id="profile">
+                {% for field in form %}
+                <tr>
+                  <th>{{ field.label_tag }}</th>
+                  <td>{{ field }}</td>
+                </tr>
+                {% endfor %}
+                <button type="submit">追加する</button>
+              </table>
+               </figure>
+            </section>
+    {% endblock %}
+
+    

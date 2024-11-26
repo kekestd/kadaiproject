@@ -1,0 +1,64 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block  bg %}index1{% endblock %}
+
+
+  
+  {% block main %}
+      <style>
+        .hidden {
+        display: none;
+          }
+      </style>
+      <section id="point">        
+        <table id="profile">
+          {% for data in object_list %}
+          <div hidden>{{data.category}}</div>
+          {% endfor %}
+          <tr>
+            <th>ニックネーム</th>
+            <td class="font-1">{{user.username}}</td>
+          </tr>
+          
+          <tr> 
+            <th>趣味</th>
+            <td id="hobbies">
+              <a id="category"></a>
+              <a class="append" href="{% url 'status_app:access' %} "  ><img  src={% static 'images/append.png' %} ></a>
+            </td>
+          </tr>
+          <script>
+            const divElements = document.querySelectorAll('div[hidden]');
+        
+        // div 要素のテキストをリスト化
+        const divTexts = Array.from(divElements).map(div => div.textContent.trim());
+        
+        // 重複を削除
+        const uniqueValues = [...new Set(divTexts)];
+        
+        // リストを表示
+        const currentListElement = document.getElementById("category");
+        currentListElement.innerHTML = uniqueValues.map(value => `<h3>${value}</h3>`).join("");
+        if (uniqueValues.length === 6) {
+            const appendLink = document.querySelector('.append');
+            appendLink.classList.add('hidden'); // 非表示にするクラスを追加
+        }
+      </script>
+    
+        </table>
+        
+      
+          
+         
+          
+       
+           </figure>
+        </section>
+        {% endblock %}
+    
+        
+       
+    
+
+    

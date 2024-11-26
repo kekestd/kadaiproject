@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block  bg %}course1{% endblock %}
+{% block  main %}
+<style>
+    /* 全体のリセット */
+    main {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+  
+    .container {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+      padding: 20px 30px;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      margin: auto;
+      margin-top: 50px;
+    }
+  
+    /* <ul>全体のスクロール設定 */
+    #data {
+      max-height: 200px; /* スクロール可能な最大の高さ */
+      overflow-y: auto; /* 縦スクロールを有効化 */
+      border: 1px solid #ddd; /* 外枠のボーダー */
+      border-radius: 8px;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: #f9f9f9;
+    }
+  
+    /* 各<li>要素のスタイル */
+    #data li {
+      list-style: none;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc; /* 各項目を区切るボーダー */
+      border-radius: 4px;
+      background-color: #fff;
+      transition: background-color 0.2s;
+    }
+  
+    #data li:hover {
+      background-color: #f0f0f0; /* ホバー時の色変更 */
+    }
+  
+    #data li a {
+        margin: 10px 0;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  box-shadow: 5px 8px 9px rgba(0, 0, 0, 0.4);
+  color: #eaeaea;
+  transition: color 0.3s ease, transform 0.2s ease;
+  font-size: 30px;
+    }
+    #data li a::before{
+        color: #00d4ff;
+        font-weight: bold;
+    }
+    #data li a:hover {
+        color: #00d4ff;
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+  </style>
+</head>
+<main id="user">
+<div class="container">
+<h1>ユーザー一覧</h1>
+<ul id="data">
+    {% for record in object_list %}
+  <li ><a href="{% url 'status_app:user_list' user=record.id %}">{{record.username}}</a></li>
+  {% endfor %}
+  
+</ul>
+</div>
+</main>
+
+      {% endblock %}

@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<meta charset="UTF-8">
+<meta property="og:title" content="自己紹介">
+<meta property="og:description" content="自己紹介">
+<meta property="og:image" content="images/main_visual.jpg">
+<title>効果測定</title>
+
+
+<link href={% static 'css/style.css' %} 
+rel="stylesheet" 
+>
+<link rel="stylesheet" 
+href={% static 'css/font-awesome.min.css' %}>
+<link rel="shortcut icon" 
+href={% static 'favi.ico' %}>
+<link rel="apple-touch-icon" href={% static 'webclip152.png' %}>
+</head>
+<body id="{% block  bg %}{% endblock %}">
+<div id="fb-root"></div>
+
+  
+  <!--ヘッダー-->
+  
+  <header>
+    
+      <nav id="global_navi">
+        <ul class="sticky">
+          <li class="current1"><a href="{% url 'status_app:index' %}">自己紹介</a></li>
+          <li class="current2"><a href= "{% url 'status_app:course' %}" >みんなの紹介一覧</a></li>
+          
+          <li class="current3"><a href= "{% url 'accounts:logout' %} ">ログアウト</a></li>
+        </ul>
+      </nav>
+    
+    
+
+    <h1><a ><img src= {% static 'images/gg.jpg' %}  alt="背景" ></a></h1>
+   
+      
+        
+
+    
+  </header>
+  <!--main-->
+  <!--メインビジュアル画像-->
+  {% block  visual %}{% endblock %}
+
+  <!--/メインビジュアル画像-->
+
+  <div id="wrapper">
+    <!--メイン-->
+    <div id="main">
+      <div id="breadcrumb">
+        <ol>
+          <li><a href="{% url 'status_app:index' %}">HOME</a></li>
+          <li>自己紹介</li>
+        </ol>
+      </div>
+      {% block  main %}{% endblock %}
+    </div>
+    <aside id="sidebar">
+      <section id="side_banner">
+        <h2>インスタ　LINE</h2>
+        <ul>
+          <li><a href="https://www.instagram.com/keke_20050901?igsh=dDExNHBmeWYwb2hh&utm_source=qr" target="_blank"><img src={% static 'images/insta.png' %} alt="インスタ"></a></li>
+          <li><a href="https://line.me/ti/p/F1Kyjy3CqK" target="_blank"><img src={% static 'images/line.png' %} alt="line"></a></li>
+        </ul>
+
+      </section>
+    
+      <section id="side_contact">
+        <h2>お話がある方・質問がある方</h2>
+        <address><i class="fa fa-phone"></i><a href="tel:08020594144">08020594144</a></address>
+        <p>※スマホで見ている方は電話番号のほうをクリック</p>
+        <p><a href="contact.html" class="contact_button">質問ボックス</a></p>
+      </section>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://bloom.ne.jp" data-text="あなただけのフラワーアレンジメント教室Bloom">Tweet</a>
+      
+    </aside>
+    <!--/サイド-->
+  </div>
+  <!--/wrapper-->
+
+  <!--フッター-->
+  <footer>
+    <div id="footer_nav">
+      <ul>
+        question_list
+        <li><a href="{% url 'status_app:index' %}">自己紹介</a></li>
+      
+        
+        
+      </ul>
+    </div>
+    <small>&copy; 2015 Bloom.</small>
+  </footer>
+  <!--/フッター-->
+
+</body>
+</html>
+
+  

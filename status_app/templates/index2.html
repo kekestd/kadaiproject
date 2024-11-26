@@ -1,0 +1,79 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block  bg %}index1{% endblock %}
+
+
+  
+  {% block main %}
+      <style>
+        .hidden {
+        display: none;
+          }
+      </style>
+      <section id="point">        
+        <table id="profile">
+          {% for data in object_list %}
+          <div hidden>{{data.category}}</div>
+          {% endfor %}
+          <li>
+            {% for data in object_list %}
+            <ul hidden>
+            {{data.user.username}}
+           </ul>
+           {% endfor %}
+          </li>
+          <tr>
+            <th>ニックネーム</th>
+            
+            <td id="user"></td>
+            
+          </tr>
+          
+          <tr> 
+            <th>趣味</th>
+            <td id="hobbies">
+              <a id="category"></a>
+              
+            </td>
+          </tr>
+          <script>
+            const divElements = document.querySelectorAll('div[hidden]');
+        
+            // div 要素のテキストをリスト化
+            const divTexts = Array.from(divElements).map(div => div.textContent.trim());
+            const ulElements = document.querySelectorAll('ul[hidden]');
+        
+            // div 要素のテキストをリスト化
+            const ulTexts = Array.from(ulElements).map(div => div.textContent.trim());
+        // 重複を削除
+        const currentListElement = document.getElementById("category");
+        const userlistElment = document.getElementById("user");
+        function display(data,currentListElement) {
+          
+        
+        const uniqueValues = [...new Set(data)];
+        
+        // リストを表示
+       currentListElement.innerHTML = uniqueValues.map(value => `<h3>${value}</h3>`).join("");
+      }
+      display(divTexts,currentListElement)
+      display(ulTexts,userlistElment)
+      </script>
+    
+        </table>
+        
+      
+          
+         
+          
+       
+           </figure>
+        </section>
+        {% endblock %}
+    
+        
+       
+    
+
+    
